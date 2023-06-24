@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from flask_migrate import Migrate
 import os
 import json
 basedir = os.path.dirname(__file__) 
@@ -9,6 +10,7 @@ ma = Marshmallow(app)
 app.config['SQLALCHEMY_DATABASE_URI']= "sqlite:///"+ os.path.join(basedir, "database.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATION"]=False
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 class Exam(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(200), nullable=False)
@@ -101,7 +103,7 @@ def home_home():
     datas = Exam.query.all()
     #rows = exams_schema.dump(datas)
     return render_template("tables.html", rows = datas)
-    
+
 if __name__ == "__main__":
     db.create_all()
     app.run(debug=True)
