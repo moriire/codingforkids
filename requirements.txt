@@ -37,3 +37,4 @@ urllib3==2.0.2
 watchgod==0.8.2
 Werkzeug==2.3.6
 yatl==20230507.3
+gunicorn
