@@ -1,0 +1,231 @@
+:root {
+  --bdr-color: hsl(240, 100%, 10%);
+  --bg: linear-gradient(to right, hsl(0, 100%, 75%) , hsl(60, 100%, 70%));
+  --dark-blue: hsl(240, 100%, 10%);
+  --error-bg: red;
+  --input-bg: #e6ffff;
+  --paper-bg: hsl(0, 0%, 95%);
+  --success-bg: green;
+  --text-color: hsl(0, 0%, 20%);
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  background: var(--bg);
+  display: flex;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+button:active {
+  position: relative;
+  top: 3px;
+}
+
+#quiz {
+  display: none;
+}
+
+#quiz.show {
+  display: block;
+}
+
+.alert {
+  border-radius: 0.5rem;
+  display: none;
+  color: var(--white);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.alert.error {
+  background: var(--error-bg);
+  display: block;
+}
+
+.alert.success {
+  background: var(--success-bg);
+  display: block;
+}
+
+.choice {
+  align-items: center;
+  display: flex;
+  margin: 1rem 0;
+}
+
+.choice input, .choice label {
+  cursor: pointer;
+}
+
+.choice label {
+  color: var(--dark-blue);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-left: 0.5rem;
+}
+
+.choice-buttons {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.choice-buttons button {
+  background: var(--dark-blue);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1.25rem;
+  text-transform: capitalize;
+}
+
+.choice-buttons button:hover {
+  opacity: 0.75;
+}
+
+.choice-buttons button.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.choices {
+  padding: 0.25rem 0;
+}
+
+.paper {
+  background: var(--paper-bg);
+  border-radius: 0.75rem;
+  max-width: 30rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.question {
+  color: var(--dark-blue);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.result {
+  display: none;
+}
+
+.result.show {
+  display: block;
+}
+
+.result button {
+  background: var(--dark-blue);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin: 1rem auto;
+  padding: 1rem;
+  text-transform: uppercase;
+  width: 50%;
+}
+
+.result button:hover {
+  opacity: 0.75;
+}
+
+.result h1 {
+  color: var(--dark-blue);
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  margin: 1rem;
+  text-align: center;
+}
+
+.result p {
+  align-items: center;
+  background-image: var(--bg);
+  border-radius: 100%;
+  color: var(--white);
+  display: flex;
+  font-size: 40px;
+  height: 135px;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 135px;
+}
+
+.welcome.hide {
+  display: none;
+}
+
+.welcome button {
+  background: var(--dark-blue);
+  border: none;
+  border-radius: 0.5rem;
+  color: var(--paper-bg);
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 1rem auto;
+  padding: 1rem 0;
+  text-transform: capitalize;
+  width: 50%;
+}
+
+.welcome button:hover {
+  color: var(--white);
+  opacity: 0.75;
+}
+
+.welcome h1 {
+  color: var(--dark-blue);
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  margin: 1rem;
+  text-align: center;
+}
+
+.welcome input {
+  background: var(--white);
+  border-color: var(--bdr-color);
+  border-radius: 0.35rem;
+  border-width: 2px;
+  color: var(--text-color);
+  display: block;
+  font-size: 16px;
+  margin: 1.5rem auto;
+  outline: none;
+  padding: 1rem 0.75rem;
+  width: 80%;
+}
+
+.welcome input:focus {
+  background: var(--input-bg);
+}
+
+.welcome label {
+  color: var(--dark-blue);
+  display: block;
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}

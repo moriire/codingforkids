@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Application Built with HTML, CSS and JavaScript</title>
+  <link href="{{ url_for('static', filename='/css/index.css')}}" rel="stylesheet" />
+</head>
+<body>
+  
+  <div class="paper">
+    <p id="alert" class="alert"></p>
+    <div id="welcome" class="welcome">
+      <h1>Welcome to the Quiz App</h1>
+      <div class="enter-name">
+        <label for="welcome-name">Enter your name:</label>
+        <input placeholder="Please enter your name" type="text" name="name" id="welcome-name">
+      </div>
+      <button id="welcome-button" type="button">get started</button>
+    </div>
+    <div id="quiz">
+      <p id="question" class="question"></p>
+      <div id="choices" class="choices"></div>
+      <div class="choice-buttons">
+        <button id="previous" type="button">previous</button>
+        <button id="next" type="button">next</button>
+      </div>
+    </div>
+    <div id="result" class="result">
+      <h1>Hi <span id="username">John</span>, Here&apos;s the summary of your result.</h1>
+      <p><span id="result-text"></span>%</p>
+      <button id="try-again" type="button">try again</button>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='/js/main.js')}}"></script>
+</body>
+</html>
+

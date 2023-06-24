@@ -28,7 +28,7 @@ class Exam(db.Model):
 
 class ExamSchema(ma.Schema):
     class Meta:
-        fields = ("id", "question", "option_a", "option_b", "option_c")
+        fields = ("id", "question", "option_a", "option_b", "option_c", "answer")
 
 exams_schema = ExamSchema(many=True)
 @app.route("/api", methods=["GET", "POST"])
@@ -89,6 +89,12 @@ def edit(pk):
 
         db.session.commit()
     return render_template("edit.html", exam_one = exam_one)
+
+@app.route("/app", methods=["GET", "POST", ])
+def app_home():
+    # datas = Exam.query.all()
+    #rows = exams_schema.dump(datas)
+    return render_template("app.html")
 
 @app.route("/", methods=["GET", "POST", ])
 def home_home():
