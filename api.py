@@ -124,6 +124,5 @@ if __name__ == "__main__":
 =======
     
 if __name__ == "__main__":
-    db.create_all()
     app.run(debug=True)
 >>>>>>> d7608c9477854775129f6b9576e43b099a596f9a
