@@ -1,10 +1,7 @@
 from flask import Flask, jsonify, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
-<<<<<<< HEAD
 from flask_migrate import Migrate
-=======
->>>>>>> d7608c9477854775129f6b9576e43b099a596f9a
 import os
 import json
 basedir = os.path.dirname(__file__) 
@@ -13,10 +10,7 @@ ma = Marshmallow(app)
 app.config['SQLALCHEMY_DATABASE_URI']= "sqlite:///"+ os.path.join(basedir, "database.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATION"]=False
 db = SQLAlchemy(app)
-<<<<<<< HEAD
 migrate = Migrate(app, db)
-=======
->>>>>>> d7608c9477854775129f6b9576e43b099a596f9a
 class Exam(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question = db.Column(db.String(200), nullable=False)
@@ -36,11 +30,7 @@ class Exam(db.Model):
 
 class ExamSchema(ma.Schema):
     class Meta:
-<<<<<<< HEAD
         fields = ("id", "question", "option_a", "option_b", "option_c", "answer")
-=======
-        fields = ("id", "question", "option_a", "option_b", "option_c")
->>>>>>> d7608c9477854775129f6b9576e43b099a596f9a
 
 exams_schema = ExamSchema(many=True)
 @app.route("/api", methods=["GET", "POST"])
@@ -102,27 +92,17 @@ def edit(pk):
         db.session.commit()
     return render_template("edit.html", exam_one = exam_one)
 
-<<<<<<< HEAD
 @app.route("/app", methods=["GET", "POST", ])
 def app_home():
     # datas = Exam.query.all()
     #rows = exams_schema.dump(datas)
     return render_template("app.html")
 
-=======
->>>>>>> d7608c9477854775129f6b9576e43b099a596f9a
 @app.route("/", methods=["GET", "POST", ])
 def home_home():
     datas = Exam.query.all()
     #rows = exams_schema.dump(datas)
     return render_template("tables.html", rows = datas)
-<<<<<<< HEAD
 
 if __name__ == "__main__":
-    db.create_all()
     app.run(debug=True)
-=======
-    
-if __name__ == "__main__":
-    app.run(debug=True)
->>>>>>> d7608c9477854775129f6b9576e43b099a596f9a
