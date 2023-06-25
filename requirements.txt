@@ -11,7 +11,7 @@ Flask
 flask-marshmallow==0.15.0
 Flask-Migrate==4.0.4
 Flask-Script==2.0.6
-Flask-SQLAlchemy==3.0.5\
+Flask-SQLAlchemy==3.0.5
 marshmallow-sqlalchemy
 greenlet==2.0.2
 idna==3.4
