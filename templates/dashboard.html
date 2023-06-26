@@ -27,12 +27,18 @@
         <ul class="nav">
           <li >
             <a href="/">
+              <i class="nc-icon nc-shop"></i>
+              <p>Home</p>
+            </a>
+          </li>
+          <li >
+            <a href="/dashboard">
               <i class="nc-icon nc-zoom-split"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li  onclick="activeNav(event, 'add')">
-            <a href="/add">
+          <li>
+            <a href="/dashboard/add">
               <i class="nc-icon nc-simple-add"></i>
               <p>Add Question</p>
             </a>
@@ -60,7 +66,6 @@
       <!-- End Navbar -->
       {% block content %} {% endblock %}
     </div>
-    <a href="#" id="yes" onclick="delBtn(event, 2)">Okay</a>
   </div>
   <!--   Core JS Files   -->
   <script src="{{ url_for('static', filename='js/core/jquery.min.js')}}"></script>
@@ -74,7 +79,7 @@
    
     function delBtn(event){
       id = event.target.id.split("_")[1]
-      url = `${location.href}/remove/${id}`
+      url = `/remove/${id}`
       fetch(url).then(res=>{
         location.href = location.href
       }).catch(err =>{

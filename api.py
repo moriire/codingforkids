@@ -59,7 +59,7 @@ def apihome(pk):
         db.session.commit()
         return jsonify(data=exam_schema.dump(exams), status=204)
     
-@app.route("/add", methods=["GET", "POST", ])
+@app.route("/dashboard/add", methods=["GET", "POST", ])
 def home():
     exam_data = Exam.query.all()
     if request.method=="POST":
@@ -73,7 +73,7 @@ def home():
         db.session.commit()
     return render_template("index.html", exam_data = exam_data)
 
-@app.route("/edit/<pk>", methods=["GET", "POST", "DELETE"])
+@app.route("/dashboard/<pk>/edit", methods=["GET", "POST", "DELETE"])
 def edit(pk):
     exam_one = Exam.query.get_or_404(pk)
     if request.method=="DELETE":
@@ -92,13 +92,13 @@ def edit(pk):
         db.session.commit()
     return render_template("edit.html", exam_one = exam_one)
 
-@app.route("/app", methods=["GET", "POST", ])
+@app.route("/", methods=["GET", "POST", ])
 def app_home():
     # datas = Exam.query.all()
     #rows = exams_schema.dump(datas)
     return render_template("app.html")
 
-@app.route("/", methods=["GET", "POST", ])
+@app.route("/dashboard", methods=["GET", "POST", ])
 def home_home():
     datas = Exam.query.all()
     #rows = exams_schema.dump(datas)
