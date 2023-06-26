@@ -5,7 +5,7 @@
       <div class="col-lg-6 col-md-8 col-sm-10">
         <div class="card card-stats">
           <div class="card-body ">
-            <form action="/{{ exam_one.id }}/edit" method="post">
+            <form action="/dashboard/{{ exam_one.id }}/edit" method="post">
               <div  class="form-group">
                 <textarea class="form-control" placeholder="question" name="question" >{{ exam_one.question }}</textarea></div>
               <div  class="form-group"><input type="text" class="form-control" name="option_a" placeholder="option_a"  value="{{ exam_one.option_a }}" required></div>
