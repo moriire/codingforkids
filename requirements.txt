@@ -40,3 +40,4 @@ urllib3
 watchgod
 Werkzeug
 yatl==20230507.3
+gunicorn
