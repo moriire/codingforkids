@@ -75,11 +75,7 @@ def home():
 
 @app.route("/dashboard/<pk>/edit", methods=["GET", "POST", "DELETE"])
 def edit(pk):
-    exam_one = Exam.query.get_or_404(pk)
-    if request.method=="DELETE":
-        db.session.delete(exam_one)
-        
-
+    exam_one = Exam.query.get_or_404(pk)     
     if request.method=="POST":
         #db.session.delete(exam_one)
         #db.session.commit()
@@ -88,7 +84,6 @@ def edit(pk):
         exam_one.option_b = request.form.get("option_b")
         exam_one.option_c = request.form.get("option_c")
         exam_one.answer = request.form.get("answer")
-
         db.session.commit()
     return render_template("edit.html", exam_one = exam_one)
 
